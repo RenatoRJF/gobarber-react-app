@@ -11,6 +11,9 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
   module: {
     rules: [
       {
@@ -18,10 +21,12 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(svg|png)$/,
+        use: 'file-loader',
+        exclude: /node_modules/,
+      },
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
