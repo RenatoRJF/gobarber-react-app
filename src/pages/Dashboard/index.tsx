@@ -12,6 +12,7 @@ import {
   NextAppointment,
   Section,
   Appointment,
+  CalendarContainer,
 } from './styles';
 import logoImg from '../../assets/logo.svg';
 import Calendar from '../../components/Calendar';
@@ -119,7 +120,9 @@ const Dahsboard: FC = () => {
           </Section>
         </Schedule>
 
-        <Calendar onDayClick={handleChangeDate} selectedDays={selectedDate} />
+        <CalendarContainer>
+          <Calendar onDayClick={handleChangeDate} selectedDays={selectedDate} />
+        </CalendarContainer>
       </Content>
     </Container>
   );

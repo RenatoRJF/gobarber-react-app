@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { appearFrom } from '../../styles/animations';
 
 export const Container = styled.div``;
 
@@ -15,6 +16,7 @@ export const HeaderContent = styled.div`
 
   > img {
     height: 80px;
+    animation: ${appearFrom('left')} 1s;
   }
 
   button {
@@ -22,6 +24,7 @@ export const HeaderContent = styled.div`
     background-color: transparent;
     border: 0;
     transition: opacity 0.2s;
+    animation: ${appearFrom('top')} 1s;
 
     &:hover {
       opacity: 0.8;
@@ -39,6 +42,7 @@ export const Profile = styled.div`
   display: flex;
   align-items: center;
   margin-left: 80px;
+  animation: ${appearFrom('right')} 2s;
 
   img {
     width: 56px;
@@ -71,6 +75,7 @@ export const Content = styled.main`
 export const Schedule = styled.div`
   flex: 1;
   margin-right: 120px;
+  animation: ${appearFrom('bottom')} 1s;
 
   h1 {
     font-size: 36px;
@@ -100,6 +105,7 @@ export const Schedule = styled.div`
 
 export const NextAppointment = styled.div`
   margin-top: 64px;
+  animation: ${appearFrom('left')} 2s;
 
   > strong {
     color: #999591;
@@ -153,6 +159,7 @@ export const NextAppointment = styled.div`
 
 export const Section = styled.section`
   margin-top: 48px;
+  animation: ${appearFrom('right')} 1.5s;
 
   > strong {
     color: #999591;
@@ -206,4 +213,8 @@ export const Appointment = styled.div`
       font-size: 20px;
     }
   }
+`;
+
+export const CalendarContainer = styled.div`
+  animation: ${appearFrom('right')} 1.5s;
 `;

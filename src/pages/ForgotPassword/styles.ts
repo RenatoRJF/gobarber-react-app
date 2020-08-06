@@ -1,18 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { shade } from 'polished';
+import { appearFrom } from '../../styles/animations';
 
 import signInBackgroundImg from '../../assets/sign-in-background.png';
-
-const appearFromLeft = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
 
 export const Container = styled.div`
   height: 100vh;
@@ -29,7 +19,7 @@ export const Content = styled.div`
   align-items: center;
   width: 100%;
   max-width: 700px;
-  animation: ${appearFromLeft} 1s;
+  animation: ${appearFrom('left')} 1s;
 
   form {
     margin: 80px 0;
