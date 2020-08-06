@@ -3,6 +3,7 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -58,10 +59,10 @@ const SignUp: FC = () => {
           <Button type="submit">Create Account</Button>
         </Form>
 
-        <a href="/sign-up">
+        <Link to="/">
           <FiArrowLeft />
           Back to login
-        </a>
+        </Link>
       </Content>
     </Container>
   );
