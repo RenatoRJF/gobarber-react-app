@@ -14,10 +14,9 @@ import getValidationErrors from '../../utils/getValidationErrors';
 
 interface FormData {
   email: string;
-  password: string;
 }
 
-const SignIn: FC = () => {
+const ForgotPassword: FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: FormData): Promise<void> => {
@@ -28,7 +27,6 @@ const SignIn: FC = () => {
         email: Yup.string()
           .required('Email is required.')
           .email('Email is not valid.'),
-        password: Yup.string().required('Password is required'),
       });
 
       await schema.validate(data, {
@@ -47,25 +45,16 @@ const SignIn: FC = () => {
         <img src={logoImg} alt="logo" />
 
         <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Sign in</h1>
+          <h1>Forgot password</h1>
 
           <Input name="email" icon={FiMail} placeholder="Email" />
 
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="password"
-          />
-
-          <Button type="submit">Enter</Button>
-
-          <Link to="/forgot-password">Forgot password</Link>
+          <Button type="submit">Send</Button>
         </Form>
 
-        <Link to="/sign-up">
+        <Link to="/">
           <FiLogIn />
-          Sign up
+          Back to sign in
         </Link>
       </Content>
 
@@ -74,4 +63,4 @@ const SignIn: FC = () => {
   );
 };
 
-export default SignIn;
+export default ForgotPassword;

@@ -12,10 +12,16 @@ import logoImg from '../../assets/logo.svg';
 import { Container, Content, Background } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
 
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+}
+
 const SignUp: FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(async (data: object): Promise<void> => {
+  const handleSubmit = useCallback(async (data: FormData): Promise<void> => {
     try {
       formRef.current?.setErrors({});
 
