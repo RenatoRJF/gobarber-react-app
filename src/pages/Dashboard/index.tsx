@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useCallback } from 'react';
 import { FiPower, FiClock } from 'react-icons/fi';
+import { DayModifiers } from 'react-day-picker';
 
 import {
   Container,
@@ -11,11 +12,19 @@ import {
   NextAppointment,
   Section,
   Appointment,
-  Calendar,
 } from './styles';
 import logoImg from '../../assets/logo.svg';
+import Calendar from '../../components/Calendar';
 
 const Dahsboard: FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
+  const handleChangeDate = useCallback((day: Date, modifiers: DayModifiers) => {
+    if (modifiers.available) {
+      setSelectedDate(day);
+    }
+  }, []);
+
   return (
     <Container>
       <Header>
@@ -110,7 +119,7 @@ const Dahsboard: FC = () => {
           </Section>
         </Schedule>
 
-        <Calendar />
+        <Calendar onDayClick={handleChangeDate} selectedDays={selectedDate} />
       </Content>
     </Container>
   );
