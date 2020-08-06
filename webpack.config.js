@@ -9,7 +9,9 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
+    historyApiFallback: true,
     contentBase: path.resolve(__dirname, 'public'),
+    hot: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
