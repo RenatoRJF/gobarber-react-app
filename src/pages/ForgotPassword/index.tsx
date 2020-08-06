@@ -3,7 +3,7 @@ import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -18,6 +18,7 @@ interface FormData {
 
 const ForgotPassword: FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
   const handleSubmit = useCallback(async (data: FormData): Promise<void> => {
     try {
@@ -32,6 +33,8 @@ const ForgotPassword: FC = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
+
+      history.push('/dashboard');
     } catch (err) {
       const errors = getValidationErrors(err);
 

@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -20,6 +20,7 @@ interface FormData {
 
 const SignUp: FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
   const handleSubmit = useCallback(async (data: FormData): Promise<void> => {
     try {
@@ -36,6 +37,8 @@ const SignUp: FC = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
+
+      history.push('/dashboard');
     } catch (err) {
       const errors = getValidationErrors(err);
 

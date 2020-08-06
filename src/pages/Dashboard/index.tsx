@@ -1,6 +1,7 @@
 import React, { FC, useState, useCallback } from 'react';
 import { FiPower, FiClock } from 'react-icons/fi';
 import { DayModifiers } from 'react-day-picker';
+import { useHistory } from 'react-router-dom';
 
 import {
   Container,
@@ -19,11 +20,16 @@ import Calendar from '../../components/Calendar';
 
 const Dahsboard: FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const history = useHistory();
 
   const handleChangeDate = useCallback((day: Date, modifiers: DayModifiers) => {
     if (modifiers.available) {
       setSelectedDate(day);
     }
+  }, []);
+
+  const handleLogout = useCallback(() => {
+    history.push('/');
   }, []);
 
   return (
@@ -44,7 +50,7 @@ const Dahsboard: FC = () => {
             </div>
           </Profile>
 
-          <button type="button">
+          <button type="button" onClick={handleLogout}>
             <FiPower />
           </button>
         </HeaderContent>
