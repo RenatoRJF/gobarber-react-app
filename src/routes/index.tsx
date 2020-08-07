@@ -4,6 +4,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import ForgotPassword from '../pages/ForgotPassword';
 import Dahsboard from '../pages/Dashboard';
+import Profile from '../pages/Profile';
 
 const Routes: FC = () => (
   <Switch>
@@ -11,6 +12,7 @@ const Routes: FC = () => (
     <Route path="/sign-up" component={SignUp} />
     <Route path="/forgot-password" component={ForgotPassword} />
     <Route path="/dashboard" component={Dahsboard} />
+    <Route path="/profile" component={Profile} />
   </Switch>
 );
 

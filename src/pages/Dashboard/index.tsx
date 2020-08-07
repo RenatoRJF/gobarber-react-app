@@ -1,7 +1,7 @@
 import React, { FC, useState, useCallback } from 'react';
 import { FiPower, FiClock } from 'react-icons/fi';
 import { DayModifiers } from 'react-day-picker';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import {
   Container,
@@ -46,7 +46,10 @@ const Dahsboard: FC = () => {
 
             <div>
               <span>Welcome,</span>
-              <strong>Beatriz Gonçales</strong>
+
+              <Link to="/profile">
+                <strong>Beatriz Gonçales</strong>
+              </Link>
             </div>
           </Profile>
 

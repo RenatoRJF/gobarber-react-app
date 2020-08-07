@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { appearFrom } from '../../styles/animations';
+import { shade } from 'polished';
 
 export const Container = styled.div``;
 
@@ -34,6 +35,10 @@ export const HeaderContent = styled.div`
       color: #999591;
       width: 20px;
       height: 20px;
+
+      &:hover {
+        color: #ff9000;
+      }
     }
   }
 `;
@@ -60,8 +65,13 @@ export const Profile = styled.div`
       color: #f4ede8;
     }
 
-    strong {
+    a {
+      text-decoration: none;
       color: #ff9000;
+
+      &:hover {
+        color: ${shade(0.2, '#ff9000')};
+      }
     }
   }
 `;
